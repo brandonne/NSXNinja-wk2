@@ -1,0 +1,38 @@
+# Copyright 2018 VMware, Inc.
+# SPDX-License-Identifier: BSD-2-Clause OR GPL-3.0-only
+---
+- hosts: 127.0.0.1
+  connection: local
+  become: yes
+  vars_files:
+    - answerfile.yml
+  tasks:
+    - name: Create logical router
+      vmware.ansible_for_nsxt.nsxt_logical_routers:
+        hostname: "{{hostname}}"
+        username: "{{username}}"
+        password: "{{password}}"
+        validate_certs: False
+        display_name: "tier-0"
+        edge_cluster_name: "edge-cluster-1"
+        router_type: "TIER0"
+        high_availability_mode: "ACTIVE_ACTIVE"
+        state: "present"
+        failover_mode: "NON_PREEMPTIVE"
+        advanced_config:
+          internal_transit_network: "169.254.0.0/28"
+          ha_vip_configs:
+            - enabled: False
+              ha_vip_subnets:
+                - active_vip_addresses: [ "12.12.4.4" ]
+                  prefix_length: "22"
+              redundant_uplink_port_ids: [ "Uplink-1","Uplink-2" ]
+            - enabled: False
+              ha_vip_subnets:
+                - active_vip_addresses: [ "12.12.4.5" ]
+                  prefix_length: "22"
+              redundant_uplink_port_names: [ "Uplink-3","Uplink-4" ]
+              redundant_uplink_port_ids: ["z", "y"]
+        tags:
+          - scope: "Scope1"
+            tag: "Tag1"
