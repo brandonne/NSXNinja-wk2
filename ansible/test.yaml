@@ -10,3 +10,9 @@
     - name: Display segment
       debug:
         msg: "the segment is: {{segment_name}}"
+    - name: List Hostswitch Profiles
+      nsxt_uplink_profiles_facts:
+        hostname: "10.192.167.137"
+        username: "admin"
+        password: "Admin!23Admin"
+        validate_certs: False
