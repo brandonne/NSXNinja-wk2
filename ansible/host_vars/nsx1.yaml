@@ -1,5 +1,5 @@
 # NSX Login
-nsx_hostname: nsxapp-01a
+nsx_hostname: nsxapp-01a.corp.local
 nsx_username: admin
 nsx_password: VMware1!VMware1!
 
