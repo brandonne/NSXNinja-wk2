@@ -26,8 +26,8 @@
 #          local_egress: True
         admin_state: UP
 #        connectivity_path: "/infra/tier-1s/d082bc25-a9b2-4d13-afe5-d3cecad4b854"
-        subnets:
-          - gateway_address: "{{segment_gatway_address}}"
+#        subnets:
+#          - gateway_address: "{{segment_gateway_address}}"
           # - dhcp_config:
           #     # IPv4 example
           #     options:
