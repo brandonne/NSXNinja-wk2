@@ -5,6 +5,8 @@
 # Playbook to test Segment
 #
 - hosts: nsx1
+  vars_files:
+  - nsxt_policy_segment_vars.yaml
   tasks:
     - name: Update Segment
       vmware.ansible_for_nsxt.nsxt_policy_segment:
