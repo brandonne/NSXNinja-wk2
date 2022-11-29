@@ -8,12 +8,12 @@
   tasks:
     - name: Update Segment
       vmware.ansible_for_nsxt.nsxt_policy_segment:
-        hostname: {{nsx_hostname}}
-        username: {{nsx_username}}
-        password: {{nsx_password}}
+        hostname: "{{nsx_hostname}}"
+        username: "{{nsx_username}}"
+        password: "{{nsx_password}}"
         validate_certs: False
         state: present
-        display_name: {{segment_name}}
+        display_name: "{{segment_name}}"
         domain_name: "default"
         transport_zone_display_name: "nsx-overlay-transportzone"
         replication_mode: "SOURCE"
@@ -25,7 +25,7 @@
         admin_state: UP
 #        connectivity_path: "/infra/tier-1s/d082bc25-a9b2-4d13-afe5-d3cecad4b854"
         subnets:
-          - gateway_address: {{segment_gatway_address}}
+          - gateway_address: "{{segment_gatway_address}}"
           # - dhcp_config:
           #     # IPv4 example
           #     options:
