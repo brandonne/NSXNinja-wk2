@@ -4,7 +4,7 @@
 #
 # Playbook to test Segment
 #
-- hosts: nsx1
+- hosts: nsx
   vars_files:
   - nsxt_policy_segment_vars.yaml
   tasks:
