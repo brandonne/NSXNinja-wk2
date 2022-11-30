@@ -12,7 +12,7 @@
         msg: "the segment is: {{segment_name}}"
     - name: List Hostswitch Profiles
       vmware.ansible_for_nsxt.nsxt_uplink_profiles_facts:
-        hostname: "10.192.167.137"
-        username: "admin"
-        password: "Admin!23Admin"
+        hostname: "{{nsx_hostname}}"
+        username: "{{nsx_username}}"
+        password: "{{nsx_password}}"
         validate_certs: False
