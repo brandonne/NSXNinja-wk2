@@ -16,8 +16,8 @@
 #     connectivity: "OFF"
 #     hybrid: False
 #     local_egress: True
-     admin_state: UP
-#    connectivity_path: "/infra/tier-1s/d082bc25-a9b2-4d13-afe5-d3cecad4b854"
-     subnets:
-       - gateway_address: "{{segment.gateway_address}}"
+    admin_state: UP
+#   connectivity_path: "/infra/tier-1s/d082bc25-a9b2-4d13-afe5-d3cecad4b854"
+    subnets:
+      - gateway_address: "{{segment.gateway_address}}"
 
