@@ -5,7 +5,7 @@
     hostname: "{{nsx_hostname}}"
     username: "{{nsx_username}}"
     password: "{{nsx_password}}"
-    validate_certs: "{{ nsxt_validate_certs}}"
+    validate_certs: "{{ nsxt_validate_certs }}"
     state: present
     display_name: "{{segment.name}}"
     domain_name: "default"
