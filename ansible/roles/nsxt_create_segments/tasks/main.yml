@@ -4,4 +4,4 @@
   include_tasks: create_segments.yaml
   loop: "{{ segments }}"
   loop_control:
-    loop_var: segmentvi
+    loop_var: segment
