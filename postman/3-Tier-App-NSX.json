@@ -1,0 +1,68 @@
+{ "resource_type": "Infra",
+"children": [
+  {
+   "resource_type": "ChildTier1",
+   "Tier1": {
+    "resource_type": "Tier1",
+    "id": "Shinobi-API-T1-GW",
+    "display_name":"Shinobi-API-T1-GW",
+    "failover_mode": "NON_PREEMPTIVE",
+    "tier0_path": "/infra/tier-0s/T0-GW",
+    "route_advertisement_types": [
+      "TIER1_NAT",
+      "TIER1_CONNECTED"
+    ]
+   }
+  },
+  {
+  "resource_type":"ChildSegment",
+  "Segment": {
+    "resource_type": "Segment",
+    "id": "API-Web-Seg",
+    "display_name":"API-Web-Seg",
+    "transport_zone_path":"/infra/sites/default/enforcement-points/default/transport-zones/1b3a2f36-bfd1-443e-a0f6-4de01abc963e",
+    "connectivity_path": "/infra/tier-1s/Shinobi-API-T1-GW",
+    "subnets": [
+      {
+        "gateway_address": "172.16.210.1/24",
+        "network": "172.16.210.0/24"
+      }
+     ]
+    }
+},
+
+{
+  "resource_type":"ChildSegment",
+  "Segment": {
+    "resource_type": "Segment",
+    "id": "API-App-Seg",
+    "display_name":"API-App-Seg",
+    "transport_zone_path":"/infra/sites/default/enforcement-points/default/transport-zones/1b3a2f36-bfd1-443e-a0f6-4de01abc963e",
+    "connectivity_path": "/infra/tier-1s/Shinobi-API-T1-GW",
+    "subnets": [
+      {
+        "gateway_address": "172.16.220.1/24",
+        "network": "172.16.220.0/24"
+      }
+     ]
+    }
+},
+
+{
+  "resource_type":"ChildSegment",
+  "Segment": {
+    "resource_type": "Segment",
+    "id": "API-DB-Seg",
+    "display_name":"API-DB-Seg",
+    "transport_zone_path":"/infra/sites/default/enforcement-points/default/transport-zones/1b3a2f36-bfd1-443e-a0f6-4de01abc963e",
+    "connectivity_path": "/infra/tier-1s/Shinobi-API-T1-GW",
+    "subnets": [
+      {
+        "gateway_address": "172.16.230.1/24",
+        "network": "172.16.230.0/24"
+      }
+     ]
+    }
+}
+  ]
+}
